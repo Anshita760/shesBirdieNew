@@ -347,6 +347,17 @@ div[data-color = "indigo"]{
     border: 2px dashed #747474;
     border-radius: 5px;
 }
+.cancel-item{
+    width: fit-content;
+    margin-left: 50px;
+    margin-bottom: -12px;
+    font-size: 14px !important;
+    background-color: #2a4acd;
+    color: white;
+    border-radius: 10px;
+    z-index: 1;
+    cursor: context-menu;
+}
 .dotted-img{
     width: 100%;
 }

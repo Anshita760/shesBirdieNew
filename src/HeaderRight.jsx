@@ -2,28 +2,33 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./headerRight.css"
 
-const HeaderRight = (props) => {
+const HeaderRight = () => {
   const [open, setopen] = useState(true)
   const add = [
     {
+      id: 1,
       src : "https://www.shesbirdie.com/cdn/shop/files/AquaB_100x.png?v=1697909060",
-      alt : "Img-1"
+      dataTitle: "Aqua"
     },
     {
+      id: 2,
       src : "https://www.shesbirdie.com/cdn/shop/files/B_100x.jpg?v=1698957185",
-      alt : "Img-2"
+      dataTitle: "Lavender"
     },
     {
+      id: 3,
       src : "https://www.shesbirdie.com/cdn/shop/files/CharcoalB_100x.png?v=1698957185",
-      alt : "Img-3"
+      dataTitle: "Charcoal"
     },
     {
+      id: 4,
       src : "https://www.shesbirdie.com/cdn/shop/files/IndigoB_100x.png?v=1698957185",
-      alt : "Img-4"
+      dataTitle: "Indigo"
     },
     {
+      id: 5,
       src : "https://www.shesbirdie.com/cdn/shop/files/CoralB_100x.png?v=1698957185",
-      alt : "Img-5"
+      dataTitle: "Coral"
     }
   ]
 
@@ -95,7 +100,6 @@ const HeaderRight = (props) => {
 
   const [price, setPrice] = useState("$148.55")
   const [lineOverPrice, setLineoverprice] = useState("$174.75")
-
   const handleBundlePrice = (bundleprice) => {
     switch (bundleprice) {
       case 5:
@@ -129,7 +133,7 @@ const HeaderRight = (props) => {
       newImages[idx1] = image.src
       setImg1(newImages)
       setidx1(idx1 + 1)
-    } 
+    }
     else if(idx2 < img2.length){
       const newImages = [...img2]
       newImages[idx2] = image.src
@@ -154,7 +158,7 @@ const HeaderRight = (props) => {
             <span className="material-symbols-outlined">star_rate</span>
             <span className="material-symbols-outlined">star_rate</span>
             <span className="material-symbols-outlined">star_rate</span>
-            <p className='rate-count'>(225)</p>
+            <p className='rate-count'>(22img1.length)</p>
           </NavLink>
           <h1>BIRDIE+</h1>
           <p>The personal safety alarm loved by 1 million women got an upgrade</p>
@@ -297,11 +301,11 @@ const HeaderRight = (props) => {
               return (
                 <div className="select-item" key={index}>
                   <img 
-                    onClick={()=>(addImage(add))}
+                    onClick={()=>{addImage(add)}}
                     src={add.src} 
-                    alt={add.alt} 
+                    alt=''
                   />
-                  <button onClick={()=>(addImage(add))}>Add</button>
+                  <button onClick={()=>{addImage(add)}}>Add</button>
                 </div>
               ) 
             })}
@@ -318,30 +322,33 @@ const HeaderRight = (props) => {
               <div className={isChecked1 ? 'dotted' : 'dotted-inactive'} id='active5' onChange={handleRadioChange1}>
                 {img1.map((img,idx)=>(
                   <div className="dotted-box">
-                    <div className='dotted-box-img' key={idx}>
-                      <img src={img} alt="" className='dotted-img'/>
-                    </div>
-                    <span>Birdie #1</span>
+                      <span className="material-symbols-outlined cancel-item">close</span>
+                      <div className='dotted-box-img' key={idx}>
+                        <img src={img} alt="" className='dotted-img'/>
+                      </div>
+                    <span>Birdie #{idx+1}</span>
                   </div>
                 ))} 
               </div>
               <div className={isChecked2 ? 'dotted' : 'dotted-inactive'} id='active3' onChange={handleRadioChange2}>
                 {img2.map((img,idx)=>(
                   <div className="dotted-box">
+                      <span className="material-symbols-outlined cancel-item">close</span>
                     <div className='dotted-box-img' key={idx}>
                       <img src={img} alt="" className='dotted-img'/>
                     </div>
-                    <span>Birdie #1</span>
+                    <span>Birdie #{idx+1}</span>
                   </div>
                 ))} 
               </div>
               <div className={isChecked3 ? 'dotted' : 'dotted-inactive'} id='active1' onChange={handleRadioChange3}>
                 {img3.map((img,idx)=>(
                   <div className="dotted-box">
+                      <span className="material-symbols-outlined cancel-item">close</span>
                     <div className='dotted-box-img' key={idx}>
                       <img src={img} alt="" className='dotted-img'/>
                     </div>
-                    <span>Birdie #1</span>
+                    <span>Birdie #{idx+1}</span>
                   </div>
                 ))} 
               </div>
