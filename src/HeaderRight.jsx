@@ -117,20 +117,33 @@ const HeaderRight = (props) => {
   }
 
   const [img1, setImg1] = useState(Array(5).fill(null))
-  const [img2, setImg2] = useState()
-  const [img3, setImg3] = useState()
-
+  const [img2, setImg2] = useState(Array(3).fill(null))
+  const [img3, setImg3] = useState(Array(1).fill(null))
   const [idx1, setidx1] = useState(0)
+  const [idx2, setidx2] = useState(0)
+  const [idx3, setidx3] = useState(0)
+
   const addImage = (image)=>{
     if(idx1 < img1.length){
       const newImages = [...img1]
       newImages[idx1] = image.src
       setImg1(newImages)
       setidx1(idx1 + 1)
+    } 
+    else if(idx2 < img2.length){
+      const newImages = [...img2]
+      newImages[idx2] = image.src
+      setImg2(newImages)
+      setidx2(idx2 + 1)
+    } 
+    else if(idx3 < img3.length){
+      const newImages = [...img3]
+      newImages[idx3] = image.src
+      setImg3(newImages)
+      setidx3(idx3 + 1)
     }
-    return idx1+1
   }
-
+  
   return (
     <>
       <div className='header-right-section'>
@@ -284,11 +297,11 @@ const HeaderRight = (props) => {
               return (
                 <div className="select-item" key={index}>
                   <img 
-                    onClick={()=>(addImage(add, index))}
+                    onClick={()=>(addImage(add))}
                     src={add.src} 
                     alt={add.alt} 
                   />
-                  <button>Add</button>
+                  <button onClick={()=>(addImage(add))}>Add</button>
                 </div>
               ) 
             })}
@@ -303,34 +316,34 @@ const HeaderRight = (props) => {
             </div>
             <div className='all-selected-items'>
               <div className={isChecked1 ? 'dotted' : 'dotted-inactive'} id='active5' onChange={handleRadioChange1}>
-                    {img1.map((img,idx)=>(
-                      <div className="dotted-box">
-                        <div className='dotted-box-img' key={idx}>
-                          <img src={img} alt="" className='dotted-img'/>
-                        </div>
-                        <span>Birdie #1</span>
-                      </div>
-                    ))} 
+                {img1.map((img,idx)=>(
+                  <div className="dotted-box">
+                    <div className='dotted-box-img' key={idx}>
+                      <img src={img} alt="" className='dotted-img'/>
+                    </div>
+                    <span>Birdie #1</span>
+                  </div>
+                ))} 
               </div>
               <div className={isChecked2 ? 'dotted' : 'dotted-inactive'} id='active3' onChange={handleRadioChange2}>
-                <div className="dotted-box">
-                  <div className='dotted-box-img'></div>
-                  <span>Birdie #2</span>
-                </div>
-                <div className="dotted-box">
-                  <div className='dotted-box-img'></div>
-                  <span>Birdie #2</span>
-                </div>
-                <div className="dotted-box">
-                  <div className='dotted-box-img'></div>
-                  <span>Birdie #2</span>
-                </div>
+                {img2.map((img,idx)=>(
+                  <div className="dotted-box">
+                    <div className='dotted-box-img' key={idx}>
+                      <img src={img} alt="" className='dotted-img'/>
+                    </div>
+                    <span>Birdie #1</span>
+                  </div>
+                ))} 
               </div>
               <div className={isChecked3 ? 'dotted' : 'dotted-inactive'} id='active1' onChange={handleRadioChange3}>
-                <div className="dotted-box">
-                  <div className='dotted-box-img'></div>
-                  <span>Birdie #3</span>
-                </div>
+                {img3.map((img,idx)=>(
+                  <div className="dotted-box">
+                    <div className='dotted-box-img' key={idx}>
+                      <img src={img} alt="" className='dotted-img'/>
+                    </div>
+                    <span>Birdie #1</span>
+                  </div>
+                ))} 
               </div>
             </div>
           </div>
