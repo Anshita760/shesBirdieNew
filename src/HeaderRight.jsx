@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./headerRight.css"
 
 const HeaderRight = (props) => {
   const [open, setopen] = useState(true)
-  const [add, setAdditem] =  useState([
+  const add = [
     {
       src : "https://www.shesbirdie.com/cdn/shop/files/AquaB_100x.png?v=1697909060",
       alt : "Img-1"
@@ -25,7 +25,7 @@ const HeaderRight = (props) => {
       src : "https://www.shesbirdie.com/cdn/shop/files/CoralB_100x.png?v=1698957185",
       alt : "Img-5"
     }
-  ])
+  ]
 
   const [isActive, setActive] = useState('features') // handle offered services 
   
@@ -285,9 +285,9 @@ const HeaderRight = (props) => {
                 </div>
                 </div>
             </div>
-            <div className="next-btn" onClick={()=>{setopen(!open)}}>
-            <p>Next: Choose Your Colors</p>
-            </div>
+            <button className="next-btn" onClick={()=>{setopen(!open)}}>
+              <p>Next: Choose Your Colors</p>
+            </button>
           </div>
         ) : (
         <div className="step-2">

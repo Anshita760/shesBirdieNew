@@ -250,9 +250,12 @@ div[data-color = "indigo"]{
     font-weight: 600;
 }
 .next-btn{
+    width: 100%;
     background-color: #2a4acd;
     color: white;
     text-align: center;
+    border: none;
+    outline: none;
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
