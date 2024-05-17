@@ -116,17 +116,17 @@ const HeaderRight = (props) => {
     }
   }
 
-  const [img1, setImg1] = useState([])
+  const [img1, setImg1] = useState()
   const [img2, setImg2] = useState()
   const [img3, setImg3] = useState()
 
+  const emptyImages = Array.from({length: 5})
   var idx1 = 0
   const addImage = (image)=>{
-    if(idx1 < 5){
+    if(idx1 < emptyImages.length){
       setImg1(image.src)
       return idx1+1;
     }
-    console.log(img1) 
   }
 
   return (
@@ -282,7 +282,7 @@ const HeaderRight = (props) => {
               return (
                 <div className="select-item" key={index}>
                   <img 
-                    onClick={()=>{addImage(add) }}
+                    onClick={()=>{addImage(add)}}
                     src={add.src} 
                     alt={add.alt} 
                   />
@@ -301,12 +301,15 @@ const HeaderRight = (props) => {
             </div>
             <div className='all-selected-items'>
               <div className={isChecked1 ? 'dotted' : 'dotted-inactive'} id='active5' onChange={handleRadioChange1}>
-                <div className="dotted-box" id='dup1'>
-                  <div className='dotted-box-img'>
-                    <img src={img1} alt="" className='dotted-img'/>
-                  </div>
-                  <span>Birdie #1</span>
-                </div>
+                    {emptyImages.map((img,idx)=>(
+                      <div className="dotted-box">
+                        <div className='dotted-box-img'>
+                          <img src={img1} alt="" key={idx} className='dotted-img'/>
+                          {/* <img src={img1} alt="" className='dotted-img'/> */}
+                        </div>
+                          <span>Birdie #1</span>
+                      </div>
+                    ))}
               </div>
               <div className={isChecked2 ? 'dotted' : 'dotted-inactive'} id='active3' onChange={handleRadioChange2}>
                 <div className="dotted-box">
