@@ -387,6 +387,12 @@ div[data-color = "indigo"]{
 .back-btn{
     width: 100px;
     background-color: #2a4acd;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
 }
 .addTocart-btn{
     width: 400px;

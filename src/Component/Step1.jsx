@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import Step2 from './Step2'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom/dist'
 
 const Step1 = (props) => {
-    var step2open = props.open
     
   const [bgColor, setbgColor] = useState(1)
   function handleBundlesColor(dividx){   // handle the background color of the selected bundles in step-1
@@ -137,8 +137,7 @@ const Step1 = (props) => {
                 </div>
                 </div>
             </div>
-            <NavLink to="/Step2" className="next-btn">Next: Choose Your Colors
-            </NavLink>
+            <NavLink to="/Step2" className="next-btn">Next: Choose Your Colors</NavLink>
           </div>
     </div>
   )

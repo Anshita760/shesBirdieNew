@@ -7,9 +7,6 @@ import Step2 from "./Step2"
 
 const HeaderRight = () => {
   const [open, setopen] = useState(true)
-  function handleOpen (){
-    setopen(!open)
-  }
   const [isActive, setActive] = useState('features') // handle offered services 
 
   const [handleBorder1, setBorder1] = useState(false)
@@ -108,10 +105,19 @@ const HeaderRight = () => {
             }
           </div>
         </div>
-        {/* <Step1/> */}
-        <Routes>
-          <Route path="/Step2" element = {<Step1/>}/>
-        </Routes>
+        {open ? (
+          <Routes>
+            <Route path="/" element = {<Step1/>}/> {/* Set default route to Step1 */}
+            <Route path="/Step1" element = {<Step1/>}/>
+            <Route path="/Step2" element={<Step2 />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Step2 />} /> {/* Set default route to Step2 */}
+            <Route path="/Step1" element={<Step1 />} />
+            <Route path="/Step2" element = {<Step2/>}/>
+          </Routes>
+        )}
         {/* {open ? <Step1/> : <Step2/>} */}
       </div>
     </>
