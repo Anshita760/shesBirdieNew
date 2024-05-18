@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './headerLeft.css'
+import '../CSS/headerLeft.css'
 
 const HeaderLeft = () => {
   const [data, setData] = useState(

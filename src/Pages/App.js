@@ -1,7 +1,8 @@
-import './App.css';
-import NavBar from './NavBar';
-import HeaderLeft from './HeaderLeft';
-import HeaderRight from './HeaderRight';
+import '../CSS/App.css';
+import NavBar from '../Component/NavBar';
+import HeaderLeft from '../Component/HeaderLeft';
+import HeaderRight from '../Component/HeaderRight';
+
 function App() {
   return (
     <div className="App">
