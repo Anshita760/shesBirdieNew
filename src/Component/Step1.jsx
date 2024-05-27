@@ -1,11 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import Step2 from './Step2'
-import { useNavigate } from 'react-router-dom'
-import { Link, NavLink } from 'react-router-dom/dist'
+import { NavLink } from 'react-router-dom/dist'
+import StepContext from './StepContext'
 
-const Step1 = (props) => {
-    
+const Step1 = () => {
   const [bgColor, setbgColor] = useState(1)
   function handleBundlesColor(dividx){   // handle the background color of the selected bundles in step-1
     setbgColor(dividx)
@@ -51,7 +49,7 @@ const Step1 = (props) => {
 
   const [price, setPrice] = useState("$148.55")
   const [lineOverPrice, setLineoverprice] = useState("$174.75")
-  const handleBundlePrice = (bundleprice) => {
+  const handleBundlePrice = (bundleprice) => {   // handle the price based on selected bundle
     switch (bundleprice) {
       case 5:
         setLineoverprice("$174.75");
@@ -73,6 +71,12 @@ const Step1 = (props) => {
 
   return (
     <div>
+      <StepContext.Provider value={{
+        value, lineOverPrice, price, isChecked1, isChecked2, isChecked3,
+        handleRadioChange1,
+        handleRadioChange2,
+        handleRadioChange3,
+      }}>
          <div className="step-1">
             <div className='color-swatch'>
               <div className='color' data-color = "aqua"></div>
@@ -137,8 +141,11 @@ const Step1 = (props) => {
                 </div>
                 </div>
             </div>
-            <NavLink to="/Step2" className="next-btn">Next: Choose Your Colors</NavLink>
+            <NavLink to={{pathname: `/Step2`}} className="next-btn">
+              Next: Choose Your Colors
+            </NavLink>
           </div>
+      </StepContext.Provider>
     </div>
   )
 }

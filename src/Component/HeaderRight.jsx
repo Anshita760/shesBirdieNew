@@ -6,7 +6,7 @@ import Step1 from "./Step1"
 import Step2 from "./Step2"
 
 const HeaderRight = () => {
-  const [open, setopen] = useState(true)
+  const open = true
   const [isActive, setActive] = useState('features') // handle offered services 
 
   const [handleBorder1, setBorder1] = useState(false)
@@ -118,7 +118,6 @@ const HeaderRight = () => {
             <Route path="/Step2" element = {<Step2/>}/>
           </Routes>
         )}
-        {/* {open ? <Step1/> : <Step2/>} */}
       </div>
     </>
   )
