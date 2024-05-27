@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import StepContext from './StepContext'
 
-const Step2 = () => {
+const Step2 = (props) => {
     const add = [
         {
           id: 1,
@@ -33,17 +33,17 @@ const Step2 = () => {
       ]
 
   // useContext is used to get the values passed in StepContext provider
-  const {
-    value, 
-    lineOverprice,
-    price,
-    isChecked1,
-    isChecked2,
-    isChecked3, 
-    handleRadioChange1,
-    handleRadioChange2,
-    handleRadioChange3
-  } = useContext(StepContext)
+  // const {
+  //   value, 
+  //   lineOverprice,
+  //   price,
+  //   isChecked1,
+  //   isChecked2,
+  //   isChecked3, 
+  //   handleRadioChange1,
+  //   handleRadioChange2,
+  //   handleRadioChange3
+  // } = useContext(StepContext)
 
   // these states are in different sizes to add the images in it
       const [img1, setImg1] = useState(Array(5).fill(null))
@@ -96,14 +96,14 @@ const Step2 = () => {
           </div>
           <div className='selected-items'>
             <div className='num-item-selected-text'>
-              <p>Your {value}-pack includes:</p>
+              <p>Your {props.value}-pack includes:</p>
               <div className="selected-text-price">
-                <span className='items-line-over'>{lineOverprice}</span>
-                <span>{price}</span>
+                <span className='items-line-over'>{props.lineOverprice}</span>
+                <span>{props.price}</span>
               </div>
             </div>
             <div className='all-selected-items'>
-              <div className={isChecked1 ? 'dotted' : 'dotted-inactive'} id='active5' onChange={handleRadioChange1}>
+              <div className={props.isChecked1 ? 'dotted' : 'dotted-inactive'} id='active5' onChange={props.handleRadioChange1}>
                 {img1.map((img,idx)=>(
                   <div className="dotted-box">
                       <span className="material-symbols-outlined cancel-item">close</span>
@@ -114,7 +114,7 @@ const Step2 = () => {
                   </div>
                 ))} 
               </div>
-              <div className={isChecked2 ? 'dotted' : 'dotted-inactive'} id='active3' onChange={handleRadioChange2}>
+              <div className={props.isChecked2 ? 'dotted' : 'dotted-inactive'} id='active3' onChange={props.handleRadioChange2}>
                 {img2.map((img,idx)=>(
                   <div className="dotted-box">
                       <span className="material-symbols-outlined cancel-item">close</span>
@@ -125,7 +125,7 @@ const Step2 = () => {
                   </div>
                 ))} 
               </div>
-              <div className={isChecked3 ? 'dotted' : 'dotted-inactive'} id='active1' onChange={handleRadioChange3}>
+              <div className={props.isChecked3 ? 'dotted' : 'dotted-inactive'} id='active1' onChange={props.handleRadioChange3}>
                 {img3.map((img,idx)=>(
                   <div className="dotted-box">
                       <span className="material-symbols-outlined cancel-item">close</span>
